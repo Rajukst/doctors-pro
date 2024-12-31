@@ -37,7 +37,10 @@ app.post("/add-doctor", async (req, res) => {
   res.json(users);
   })
 
-
+  app.get('/doctors',  async (req, res) => {
+    const result = await doctorsCollection.find().toArray();
+    res.send(result);
+  });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
